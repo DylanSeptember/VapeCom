@@ -9,8 +9,6 @@ public class Comment {
     private int comment_id;
     private Date commentDate;
     private String description;
-   /* private String recipe;
-    private String viewer;*/
     private Recipe recipe;
     private Viewer viewer;
 
@@ -26,14 +24,6 @@ public class Comment {
         return description;
     }
 
-   /* public String getRecipe() {
-        return recipe;
-    }
-
-    public String getViewer() {
-        return viewer;
-    }*/
-
     public Recipe getRecipe() {
         return recipe;
     }
@@ -42,14 +32,12 @@ public class Comment {
         return viewer;
     }
 
-    private Comment(){}
+    public Comment(){}
 
     public Comment(Builder builder){
         this.comment_id = builder.comment_id;
         this.commentDate = builder.commentDate;
         this.description = builder.description;
-        /*  this.recipe = builder.recipe;
-        this.viewer = builder.viewer;*/
         this.recipe = builder.recipe;
         this.viewer = builder.viewer;
     }
@@ -59,8 +47,6 @@ public class Comment {
         private int comment_id;
         private Date commentDate;
         private String description;
-       /* private String recipe;
-        private String viewer;*/
         private Recipe recipe;
         private Viewer viewer;
 
@@ -79,17 +65,7 @@ public class Comment {
             return this;
         }
 
-       /* public Builder recipe(String recipe) {
-            this.recipe = recipe;
-            return this;
-        }
-
-        public Builder viewer(String viewer) {
-            this.viewer = viewer;
-            return this;
-        }*/
-
-        public Builder recipe(Recipe recipe) {
+         public Builder recipe(Recipe recipe) {
             this.recipe = recipe;
             return this;
         }

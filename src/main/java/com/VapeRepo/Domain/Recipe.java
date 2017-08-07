@@ -9,12 +9,9 @@ import java.util.List;
 public class Recipe {
     private String name;
     private String description;
-   // private String mixer;
     private Date date;
     private Mixer mixer;
     private List<Ingredient_Specification> ing_spec;
-   // private Recipe baseRecipe;                              //  only applies to recipes that has a base recipe
-
     private int nicMg;
 
     public String getName() {
@@ -24,10 +21,6 @@ public class Recipe {
     public String getDescription() {
         return description;
     }
-
-   /* public String getMixer() {
-        return mixer;
-    }*/
 
     public Mixer getMixer() {               //  reference recipe mixer
         return mixer;
@@ -50,7 +43,6 @@ public class Recipe {
     public Recipe(Builder builder){
         this.name = builder.name;
         this.description = builder.description;
-      //  this.mixer = builder.mixer;
         this.date = builder.date;
         this.mixer = builder.mixer;
         this.ing_spec = builder.ing_spec;
@@ -61,7 +53,6 @@ public class Recipe {
 
         private String name;
         private String description;
-      //  private String mixer;
         private Date date;
         private Mixer mixer;
         private int nicMg;
@@ -88,12 +79,7 @@ public class Recipe {
             return this;
         }
 
-      /*  public Builder mixer(String mixer) {
-            this.mixer = mixer;
-            return this;
-        }*/
-
-        public Builder date(Date date) {
+       public Builder date(Date date) {
             this.date = date;
             return this;
         }

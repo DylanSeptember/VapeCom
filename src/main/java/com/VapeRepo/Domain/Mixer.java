@@ -8,19 +8,7 @@ import java.util.List;
  */
 public class Mixer extends Viewer{
 
-   /* private String name;
-    private String password;*/
-        private List<Recipe> recipes;
-
-   /* public String getName() {
-        return name;
-    }
-
-    public String getPassword() {
-        return password;
-    }*/
-
-
+    private List<Recipe> recipes;
 
     public List<Recipe> getRecipes() {
         return recipes;
@@ -29,27 +17,13 @@ public class Mixer extends Viewer{
     public Mixer(){}
 
     public Mixer(Builder builder){
-       /* this.name = builder.name;
-        this.password = builder.password;*/
 
-        this.recipes = builder.recipes;
+         this.recipes = builder.recipes;
     }
 
     public static class Builder{
 
-       /* private String name;
-        private String password;*/
-
         private List<Recipe> recipes;
-       /* public Builder name(String name) {
-            this.name = name;
-            return this;
-        }
-
-        public Builder password(String password) {
-            this.password = password;
-            return this;
-        }*/
 
         public Builder recipes(List<Recipe> recipes) {
             this.recipes = recipes;
