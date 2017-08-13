@@ -56,4 +56,19 @@ public class Report {
             return  new Report(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Report)) return false;
+
+        Report report = (Report) o;
+
+        return rep_id == report.rep_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return rep_id;
+    }
 }

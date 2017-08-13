@@ -66,4 +66,19 @@ public class Ingredient_Specification {
             return  new Ingredient_Specification(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ingredient_Specification)) return false;
+
+        Ingredient_Specification that = (Ingredient_Specification) o;
+
+        return spec_id == that.spec_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return spec_id;
+    }
 }

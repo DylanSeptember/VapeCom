@@ -80,4 +80,18 @@ public class Comment {
         }
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Comment)) return false;
+
+        Comment comment = (Comment) o;
+
+        return comment_id == comment.comment_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return comment_id;
+    }
 }

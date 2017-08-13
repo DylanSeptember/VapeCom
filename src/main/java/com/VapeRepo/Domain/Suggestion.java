@@ -70,4 +70,19 @@ public class Suggestion {
             return  new Suggestion(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Suggestion)) return false;
+
+        Suggestion that = (Suggestion) o;
+
+        return sug_id == that.sug_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return sug_id;
+    }
 }

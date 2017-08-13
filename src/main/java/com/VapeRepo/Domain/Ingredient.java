@@ -56,4 +56,19 @@ public class Ingredient {
             return  new Ingredient(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ingredient)) return false;
+
+        Ingredient that = (Ingredient) o;
+
+        return ingredient_id == that.ingredient_id;
+    }
+
+    @Override
+    public int hashCode() {
+        return ingredient_id;
+    }
 }

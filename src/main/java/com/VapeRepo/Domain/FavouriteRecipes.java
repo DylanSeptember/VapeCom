@@ -42,4 +42,19 @@ public class FavouriteRecipes {
             return  new FavouriteRecipes(this);
         }
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof FavouriteRecipes)) return false;
+
+        FavouriteRecipes that = (FavouriteRecipes) o;
+
+        return viewer.equals(that.viewer);
+    }
+
+    @Override
+    public int hashCode() {
+        return viewer.hashCode();
+    }
 }

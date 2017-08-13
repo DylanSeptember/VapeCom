@@ -1,12 +1,13 @@
 package com.VapeRepo.Domain;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
 /**
  * Created by dylan on 8/5/2017.
  */
-public class Viewer {
+public class Viewer implements Serializable{
     private String name;
     private String password;
     private String email;
@@ -105,5 +106,22 @@ public class Viewer {
         public Viewer build(){
             return  new Viewer(this);
         }
+    }
+
+
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Viewer)) return false;
+
+        Viewer viewer = (Viewer) o;
+
+        return email.equals(viewer.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return email.hashCode();
     }
 }
