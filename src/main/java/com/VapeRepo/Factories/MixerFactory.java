@@ -17,7 +17,7 @@ public class MixerFactory {
 
         Mixer mixer = new Mixer.Builder()
                 .recipes((List<Recipe>) values.get("recipes"))
-                .viewer(/*(Viewer) values.get("viewer")*/)
+                .viewer((Viewer) values.get("viewer"))
                 .build();
         return mixer;
     }

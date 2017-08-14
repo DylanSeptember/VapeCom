@@ -47,7 +47,8 @@ public class SuggestionRepositoryImplTest {
         // i++;
         //Suggestion suggestion = SuggestionFactory.getSuggestion(values);
         repository.create(suggestion);
-        assertEquals("make less bread", suggestion.getDescription());
+        Suggestion createdSuggestion = repository.read(845);
+        assertEquals("make less bread", createdSuggestion.getDescription());
 
         // System.out.println("create" + i);
 
@@ -56,9 +57,9 @@ public class SuggestionRepositoryImplTest {
     @Test(dependsOnMethods = "create")
     public void read() throws Exception {
         // i++;
-       // Suggestion readSuggestion = repository.read("1");
+        Suggestion readSuggestion = repository.read(845);
         System.out.println(suggestion.getDescription());
-        assertEquals("make less bread", suggestion.getDescription());
+        assertEquals("make less bread", readSuggestion.getDescription());
     }
 
     @Test(dependsOnMethods = "read")
@@ -70,6 +71,7 @@ public class SuggestionRepositoryImplTest {
                 .date((Date) values.get("date"))
                 .sug_id((Integer) values.get("sug_id"))
                 .build();
+
         repository.update(newSuggestion);
 
         Suggestion UpdateSuggestion = repository.read(845);
@@ -81,13 +83,13 @@ public class SuggestionRepositoryImplTest {
     public void delete() throws Exception {
         // i++;
         //System.out.println("delete" + i);
-        Suggestion person = repository.read(845);
-        System.out.println(person.getSug_id());
+        Suggestion suggestion = repository.read(845);
+        System.out.println(suggestion.getSug_id());
         repository.delete(845);
-        System.out.println(person.getDescription());
-        person = repository.read(845);
+        System.out.println(suggestion.getDescription());
+        suggestion = repository.read(845);
         //   System.out.println(person.getLastname());
-        assertNull(person);
+        assertNull(suggestion);
         //  System.out.println("delete" + i);
     }
 

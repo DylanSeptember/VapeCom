@@ -18,7 +18,12 @@ public class ViewerRepositoryImpl implements ViewerRepository {
     }
 
     public Viewer create(Viewer viewer) {
-        viewerTable = new HashMap<String, Viewer>();
+
+       /* suggestionTable.put(suggestion.getSug_id(), suggestion);
+        Suggestion savedPerson = suggestionTable.get(suggestion.getSug_id());
+        return savedPerson;*/
+
+        viewerTable.put(viewer.getEmail(), viewer);
         Viewer savedViewer = viewerTable.get(viewer.getEmail());
         return savedViewer;
     }
@@ -34,6 +39,10 @@ public class ViewerRepositoryImpl implements ViewerRepository {
         viewerTable.put(viewer.getEmail(), viewer);
         Viewer savedViewer = viewerTable.get(viewer.getEmail());
         return savedViewer;
+
+      /*  suggestionTable.put(suggestion.getSug_id(), suggestion);
+        Suggestion savedPerson = suggestionTable.get(suggestion.getSug_id());
+        return savedPerson;*/
     }
 
     public void delete(String email) {
