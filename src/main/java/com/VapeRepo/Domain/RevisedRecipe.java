@@ -1,9 +1,14 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  * Created by dylan on 8/7/2017.
  */
+@Entity
 public class RevisedRecipe /*extends Recipe*/{
+    @Id
     private Recipe recipe;
     private Recipe baseRecipe;
 

@@ -1,23 +1,10 @@
 package com.VapeRepo.Services.Impl;
 
-import com.VapeRepo.Domain.Mixer;
-import com.VapeRepo.Domain.Suggestion;
-import com.VapeRepo.Factories.SuggestionFactory;
-import com.VapeRepo.Services.SuggestionService;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Test;
-
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-
-import static org.junit.Assert.*;
-
 /**
  * Created by dylan on 8/14/2017.
  */
 public class SuggestionServiceImplTest {
-    SuggestionService service;
+   /* SuggestionService service;
     Map<String, Object> values;
     Mixer mixer;
     Date date;
@@ -30,7 +17,7 @@ public class SuggestionServiceImplTest {
         values.put("firstname","John");
         values.put("lastname","Deo");*/
 
-        service = new SuggestionServiceImpl();
+     /*   service = new SuggestionServiceImpl();
         values = new HashMap<String, Object>();
         values.put("description", "make less bread");
         values.put("mixer", mixer);
@@ -70,6 +57,6 @@ public class SuggestionServiceImplTest {
         service.delete("1");
         Suggestion suggestion = service.read("1");
         assertNull(Suggestion);
-    }
+    }*/
 
 }

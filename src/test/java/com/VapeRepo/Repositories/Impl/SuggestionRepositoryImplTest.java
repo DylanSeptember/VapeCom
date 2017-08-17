@@ -21,7 +21,7 @@ import static org.junit.Assert.*;
  */
 public class SuggestionRepositoryImplTest {
 
-    Map<String, Object> values;
+ /*   Map<String, Object> values;
     SuggestionRepository repository;
     Mixer mixer;
     Date date;
@@ -91,6 +91,6 @@ public class SuggestionRepositoryImplTest {
         //   System.out.println(person.getLastname());
         assertNull(suggestion);
         //  System.out.println("delete" + i);
-    }
+    }*/
 
 }

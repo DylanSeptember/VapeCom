@@ -4,13 +4,13 @@ import com.VapeRepo.Domain.Mixer;
 import com.VapeRepo.Domain.Viewer;
 import com.VapeRepo.Repositories.Impl.MixerRepositoryImpl;
 import com.VapeRepo.Repositories.MixerRepository;
-import com.VapeRepo.Services.MixerService;
+import com.VapeRepo.Services.Interfaces.MixerService;
 
 /**
  * Created by dylan on 8/14/2017.
  */
-public class MixerServiceImpl implements MixerService {
-    MixerRepository repository;
+public class MixerServiceImpl /*implements MixerService */{
+  /*  MixerRepository repository;
 
     public MixerServiceImpl(){
         // service = new ViewerServiceImpl();
@@ -32,5 +32,5 @@ public class MixerServiceImpl implements MixerService {
     public void delete(Viewer viewer) {
         repository.delete(viewer);
 
-    }
+    }*/
 }

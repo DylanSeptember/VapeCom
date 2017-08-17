@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by dylan on 8/14/2017.
  */
-public class MixerRepositoryImpl implements MixerRepository{
+public class MixerRepositoryImpl /*implements MixerRepository*/{
     Map<Viewer, Mixer> mixerTable;
 
     public MixerRepositoryImpl() {

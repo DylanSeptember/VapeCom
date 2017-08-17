@@ -1,13 +1,14 @@
 package com.VapeRepo.Repositories;
 
 import com.VapeRepo.Domain.Recipe;
+import org.springframework.data.repository.CrudRepository;
 
 /**
  * Created by dylan on 8/13/2017.
  */
-public interface RecipeRepository {
-    Recipe create(Recipe recipe);
+public interface RecipeRepository extends CrudRepository<Recipe, Integer> {
+  /*  Recipe create(Recipe recipe);
     Recipe read(int recipe_id);
     Recipe update(Recipe recipe);
-    void delete(int recipe_id);
+    void delete(int recipe_id);*/
 }

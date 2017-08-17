@@ -4,13 +4,13 @@ import com.VapeRepo.Domain.Recipe;
 import com.VapeRepo.Domain.RevisedRecipe;
 import com.VapeRepo.Repositories.Impl.RevisedRecipeRepositoryImpl;
 import com.VapeRepo.Repositories.RevisedRecipeRepository;
-import com.VapeRepo.Services.RevisedRecipeService;
+import com.VapeRepo.Services.Interfaces.RevisedRecipeService;
 
 /**
  * Created by dylan on 8/14/2017.
  */
-public class RevisedRecipeServiceImpl implements RevisedRecipeService {
-    RevisedRecipeRepository repository;
+public class RevisedRecipeServiceImpl /*implements RevisedRecipeService */{
+   /* RevisedRecipeRepository repository;
 
     public RevisedRecipeServiceImpl(){
         // service = new ViewerServiceImpl();
@@ -32,5 +32,5 @@ public class RevisedRecipeServiceImpl implements RevisedRecipeService {
     public void delete(Recipe recipe) {
         repository.delete(recipe);
 
-    }
+    }*/
 }

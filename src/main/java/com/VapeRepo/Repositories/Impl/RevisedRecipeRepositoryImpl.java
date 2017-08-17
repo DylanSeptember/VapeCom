@@ -11,7 +11,7 @@ import java.util.Map;
 /**
  * Created by dylan on 8/13/2017.
  */
-public class RevisedRecipeRepositoryImpl implements RevisedRecipeRepository {
+public class RevisedRecipeRepositoryImpl /*implements RevisedRecipeRepository*/ {
 
     Map<Recipe, RevisedRecipe> revisedRecipeTable;
 

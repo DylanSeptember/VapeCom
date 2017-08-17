@@ -1,5 +1,7 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -7,6 +9,7 @@ import java.util.List;
 /**
  * Created by dylan on 8/5/2017.
  */
+@Entity
 public class Recipe implements Serializable {
     private String name;
     private String description;
@@ -14,6 +17,7 @@ public class Recipe implements Serializable {
     private Mixer mixer;
     private List<Ingredient_Specification> ing_spec;
     private int nicMg;
+    @Id
     private int recipe_id;
 
     public String getName() {

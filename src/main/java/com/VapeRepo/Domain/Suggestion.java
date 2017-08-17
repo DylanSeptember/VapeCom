@@ -1,14 +1,18 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Date;
 
 /**
  * Created by dylan on 8/7/2017.
  */
+@Entity
 public class Suggestion {
     private String description;         //      mixer will have the ability to make suggestions to add ingredients to database of ingredients or any changes to the system
     private Mixer mixer;
     private Date date;
+    @Id
     private int sug_id;
 
 

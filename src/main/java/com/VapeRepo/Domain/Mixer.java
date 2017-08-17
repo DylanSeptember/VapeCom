@@ -1,5 +1,7 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -7,9 +9,11 @@ import java.util.List;
 /**
  * Created by dylan on 8/5/2017.
  */
+@Entity
 public class Mixer /*extends Viewer */implements Serializable {
 
     private List<Recipe> recipes;
+    @Id
     private Viewer viewer;
 
     public List<Recipe> getRecipes() {

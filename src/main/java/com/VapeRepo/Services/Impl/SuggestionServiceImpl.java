@@ -3,13 +3,13 @@ package com.VapeRepo.Services.Impl;
 import com.VapeRepo.Domain.Suggestion;
 import com.VapeRepo.Repositories.Impl.SuggestionRepositoryImpl;
 import com.VapeRepo.Repositories.SuggestionRepository;
-import com.VapeRepo.Services.SuggestionService;
+import com.VapeRepo.Services.Interfaces.SuggestionService;
 
 /**
  * Created by dylan on 8/14/2017.
  */
-public class SuggestionServiceImpl implements SuggestionService {
-
+public class SuggestionServiceImpl /*implements SuggestionService*/ {
+/*
     SuggestionRepository repository;
 
     public SuggestionServiceImpl(){
@@ -32,6 +32,6 @@ public class SuggestionServiceImpl implements SuggestionService {
     public void delete(int sug_id) {
         repository.delete(sug_id);
 
-    }
+    }*/
 
 }

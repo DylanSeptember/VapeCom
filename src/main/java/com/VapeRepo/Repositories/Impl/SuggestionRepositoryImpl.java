@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by dylan on 8/13/2017.
  */
-public class SuggestionRepositoryImpl implements SuggestionRepository {
+public class SuggestionRepositoryImpl /*implements SuggestionRepository */{
 
     Map<Integer, Suggestion> suggestionTable;
 

@@ -3,13 +3,18 @@ package com.VapeRepo.Domain;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 /**
  * Created by dylan on 8/5/2017.
  */
-public class Viewer implements Serializable{
+@Entity
+public class Viewer implements Serializable, Comparable<Viewer>{
     private String name;
     private String password;
+    @Id
     private String email;
     private List<Comment> comment;
     private List<FavouriteRecipes> favouriteRecipes;
@@ -54,6 +59,11 @@ public class Viewer implements Serializable{
         this.favouriteRecipes = builder.favouriteRecipes;
         this.rep = builder.rep;
         this.date = builder.date;
+    }
+
+    @Override
+    public int compareTo(Viewer viewer) {
+        return email.compareTo(viewer.email);
     }
 
     public static class Builder{
@@ -123,5 +133,13 @@ public class Viewer implements Serializable{
     @Override
     public int hashCode() {
         return email.hashCode();
+    }
+
+    @Override
+    public String toString() {
+        return "Viewer{" +
+                "email='" + email + '\'' +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

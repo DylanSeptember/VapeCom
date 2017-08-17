@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * Created by dylan on 8/14/2017.
  */
-public class RecipeRepositoryImpl implements RecipeRepository{
+public class RecipeRepositoryImpl /*implements RecipeRepository*/{
     Map<Integer, Recipe> recipeTable;
 
     public RecipeRepositoryImpl() {
