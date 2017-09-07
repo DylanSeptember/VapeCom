@@ -11,7 +11,7 @@ import java.util.Map;
  */
 public class SuggestionRepositoryImpl /*implements SuggestionRepository */{
 
-    Map<Integer, Suggestion> suggestionTable;
+   /* Map<Integer, Suggestion> suggestionTable;
 
     public SuggestionRepositoryImpl(){
         suggestionTable = new HashMap<Integer, Suggestion>();
@@ -39,5 +39,5 @@ public class SuggestionRepositoryImpl /*implements SuggestionRepository */{
 
     public void delete(int sug_id) {
         suggestionTable.remove(sug_id);
-    }
+    }*/
 }

@@ -4,11 +4,34 @@ import com.VapeRepo.Domain.Recipe;
 import com.VapeRepo.Repositories.Impl.RecipeRepositoryImpl;
 import com.VapeRepo.Repositories.RecipeRepository;
 import com.VapeRepo.Services.Interfaces.RecipeService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by dylan on 8/14/2017.
  */
-public class RecipeServiceImpl /*implements RecipeService*/ {
+@Component
+public class RecipeServiceImpl implements RecipeService{
+
+    @Autowired
+    private  RecipeRepository mixerRepository;
+
+    @Override
+    public  Recipe save( Recipe entity) {
+        return mixerRepository.save(entity);
+    }
+
+    @Override
+    public  Recipe findById(Integer s) {
+        return mixerRepository.findOne(s);
+    }
+
+    @Override
+    public  Recipe update(Integer s) {
+        return null;
+    }
+
+
 
    /* RecipeRepository repository;
 

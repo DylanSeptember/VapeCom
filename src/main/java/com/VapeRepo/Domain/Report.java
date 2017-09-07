@@ -1,11 +1,19 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
+
 /**
  * Created by dylan on 8/7/2017.
  */
-public class Report {
+@Entity
+public class Report implements Serializable {
+    @Id
+    @GeneratedValue
     private int rep_id;
     private String description;
+
+    @ManyToOne
     private Viewer viewer;
 
     public int getRep_id() {

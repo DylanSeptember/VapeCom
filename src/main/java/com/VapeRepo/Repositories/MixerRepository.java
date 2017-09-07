@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 /**
  * Created by dylan on 8/13/2017.
  */
-public interface MixerRepository extends CrudRepository<Mixer, Integer> {
+public interface MixerRepository extends CrudRepository<Mixer, String> {
   /*  Mixer create(Mixer mixer);
     Mixer read(Viewer viewer);
     Mixer update(Mixer mixer);

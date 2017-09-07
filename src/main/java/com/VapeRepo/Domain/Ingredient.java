@@ -1,9 +1,16 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
 /**
  * Created by dylan on 8/5/2017.
  */
+@Entity
 public class Ingredient {
+    @Id
+    @GeneratedValue
     private int ingredient_id;
     private String brand;
     private String description;

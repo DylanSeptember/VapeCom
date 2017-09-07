@@ -4,12 +4,36 @@ import com.VapeRepo.Domain.Suggestion;
 import com.VapeRepo.Repositories.Impl.SuggestionRepositoryImpl;
 import com.VapeRepo.Repositories.SuggestionRepository;
 import com.VapeRepo.Services.Interfaces.SuggestionService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * Created by dylan on 8/14/2017.
  */
-public class SuggestionServiceImpl /*implements SuggestionService*/ {
-/*
+@Component
+public class SuggestionServiceImpl implements SuggestionService {
+
+
+    @Autowired
+    private SuggestionRepository suggestionRepository;
+
+    @Override
+    public Suggestion save(Suggestion entity) {
+        return suggestionRepository.save(entity);
+    }
+
+    @Override
+    public Suggestion findById(Integer s) {
+        return suggestionRepository.findOne(s);
+    }
+
+    @Override
+    public Suggestion update(Integer s) {
+        return null;
+    }
+
+
+    /*
     SuggestionRepository repository;
 
     public SuggestionServiceImpl(){

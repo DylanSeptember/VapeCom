@@ -1,7 +1,8 @@
 package com.VapeRepo.Factories;
 
+/*import com.VapeRepo.Domain.Comment;
+import com.VapeRepo.Domain.FavouriteRecipes;*/
 import com.VapeRepo.Domain.Comment;
-import com.VapeRepo.Domain.FavouriteRecipes;
 import com.VapeRepo.Domain.Viewer;
 
 import java.util.Date;
@@ -13,14 +14,15 @@ import java.util.Map;
  */
 public class ViewerFactory {
 
-    public static Viewer getViewer(Map<String, Object> values){
+    public static Viewer buildViewer(Map<String, Object> values){
 
                 Viewer viewer = new Viewer.Builder()
                 .name((String) values.get("name"))
                 .password((String) values.get("password"))
                 .email((String) values.get("email"))
                 .comment((List<Comment>) values.get("comment"))
-                .favouriteRecipes((List<FavouriteRecipes>) values.get("favouriteRecipes"))
+              //          .comment((List<Comment>) values.get("comment"))
+              /*  .favouriteRecipes((List<FavouriteRecipes>) values.get("favouriteRecipes"))*/
                 .rep((Integer) values.get("rep"))
                 .date((Date) values.get("date"))
                 .build();

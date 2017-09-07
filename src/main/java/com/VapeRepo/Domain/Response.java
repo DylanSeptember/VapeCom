@@ -1,19 +1,26 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by dylan on 8/7/2017.
  */
+@Entity
 public class Response implements Serializable {
-
-    private int response_id;
+    @Id
+    @GeneratedValue
+    private int id;
     private Date responseDate;
     private String description;
-    private Recipe recipe;
+
+
+
+    @OneToOne(optional = false)
     private Viewer viewer;
 
+    @ManyToOne(optional = false)
     private Comment comment;
 
     public Comment getComment() {
@@ -21,7 +28,7 @@ public class Response implements Serializable {
     }
 
     public int getResponse_id() {
-        return response_id;
+        return id;
     }
 
     public Date getResponseDate() {
@@ -32,9 +39,7 @@ public class Response implements Serializable {
         return description;
     }
 
-    public Recipe getRecipe() {
-        return recipe;
-    }
+
 
     public Viewer getViewer() {
         return viewer;
@@ -45,10 +50,10 @@ public class Response implements Serializable {
     public Response(Builder builder){
 
         this.comment = builder.comment;
-        this.response_id = builder.response_id;
+        this.id = builder.response_id;
         this.responseDate = builder.responseDate;
         this.description = builder.description;
-        this.recipe = builder.recipe;
+
         this.viewer = builder.viewer;
     }
 
@@ -61,7 +66,7 @@ public class Response implements Serializable {
         private Viewer viewer;
         private Comment comment;
 
-        public Builder recipes(Comment comment) {
+        public Builder comment(Comment comment) {
             this.comment = comment;
             return this;
         }
@@ -105,11 +110,11 @@ public class Response implements Serializable {
 
         Response response = (Response) o;
 
-        return response_id == response.response_id;
+        return id == response.id;
     }
 
     @Override
     public int hashCode() {
-        return response_id;
+        return id;
     }
 }

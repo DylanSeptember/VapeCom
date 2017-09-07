@@ -1,7 +1,6 @@
 package com.VapeRepo.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -14,11 +13,24 @@ public class Recipe implements Serializable {
     private String name;
     private String description;
     private Date date;
+
+    @ManyToOne(optional=false)
     private Mixer mixer;
-    private List<Ingredient_Specification> ing_spec;
+
+   // @OneToMany(fetch = FetchType.LAZY, mappedBy = "recipe")
+   // private List<Ingredient_Specification> ing_spec;
+
     private int nicMg;
+
     @Id
-    private int recipe_id;
+    @GeneratedValue
+    private int id;
+
+    @ManyToOne
+    private Ingredientspecification ingredientspecification;
+
+    @OneToOne
+    private Recipe revisedRecipe;
 
     public String getName() {
         return name;
@@ -36,16 +48,16 @@ public class Recipe implements Serializable {
         return date;
     }
 
-    public List<Ingredient_Specification> getIng_spec(){
-        return ing_spec;
-    }
+//    public List<Ingredient_Specification> getIng_spec(){
+//        return ing_spec;
+//    }
 
     public int getNicMg() {
         return nicMg;
     }
 
     public int getRecipe_id() {
-        return recipe_id;
+        return id;
     }
 
     public Recipe(){}
@@ -55,9 +67,10 @@ public class Recipe implements Serializable {
         this.description = builder.description;
         this.date = builder.date;
         this.mixer = builder.mixer;
-        this.ing_spec = builder.ing_spec;
+      //  this.ing_spec = builder.ing_spec;
         this.nicMg = builder.nicMg;
-        this.recipe_id = builder.recipe_id;
+        this.id = builder.recipe_id;
+        this.revisedRecipe = builder.revisedRecipe;
     }
 
     public static class Builder{
@@ -67,8 +80,9 @@ public class Recipe implements Serializable {
         private Date date;
         private Mixer mixer;
         private int nicMg;
+        private Recipe revisedRecipe;
 
-        private List<Ingredient_Specification> ing_spec;
+        private List<Ingredientspecification> ing_spec;
 
         public Builder name(String name) {
             this.name = name;
@@ -85,7 +99,7 @@ public class Recipe implements Serializable {
             return this;
         }
 
-        public Builder ing_spec(List<Ingredient_Specification> ing_spec) {                  // assign ingredients
+        public Builder ing_spec(List<Ingredientspecification> ing_spec) {                  // assign ingredients
             this.ing_spec = ing_spec;
             return this;
         }
@@ -105,6 +119,11 @@ public class Recipe implements Serializable {
             return this;
         }
 
+        public Builder revisedRecipe(Recipe revisedRecipe) {
+            this.revisedRecipe = revisedRecipe;
+            return this;
+        }
+
         public Recipe build(){
             return  new Recipe(this);
         }
@@ -117,11 +136,11 @@ public class Recipe implements Serializable {
 
         Recipe recipe = (Recipe) o;
 
-        return recipe_id == recipe.recipe_id;
+        return id == recipe.id;
     }
 
     @Override
     public int hashCode() {
-        return recipe_id;
+        return id;
     }
 }

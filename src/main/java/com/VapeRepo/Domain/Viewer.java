@@ -1,23 +1,67 @@
 package com.VapeRepo.Domain;
 
+//import org.hibernate.annotations.GenericGenerator;
+
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
+import javax.validation.constraints.Null;
 
 
 /**
  * Created by dylan on 8/5/2017.
  */
 @Entity
-public class Viewer implements Serializable, Comparable<Viewer>{
+public class Viewer /*implements Serializable, Comparable<Viewer>*/{
     private String name;
     private String password;
+
     @Id
+    //@Column(name = "email")
     private String email;
+
+
+
+
+
+
+
+
+
+
+
+   // @OneToMany(/*mappedBy = "viewer", cascade= CascadeType.ALL,*/fetch=FetchType.EAGER )
+//    @OneToMany(targetEntity=Comment.class, mappedBy="comment_id", fetch=FetchType.EAGER)
+//    @JoinColumn(name = "comment_id")
+    @OneToMany(mappedBy="comment_id")
+    //@JoinColumn(name = "comment_id")
     private List<Comment> comment;
-    private List<FavouriteRecipes> favouriteRecipes;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//@OneToMany(/*mappedBy = "viewer", targetEntity=Comment.class,*/ cascade= CascadeType.ALL/*,fetch=FetchType.EAGER*/)         // fix this later
+//////@JoinColumn(name="comment_id")
+//private List<Comment> comment = new ArrayList();
+
+   /* private List<FavouriteRecipes> favouriteRecipes;*/
     private int rep;                    //  the rep of the viewer, not visible to viewers or mixers  -   determined and visible to Admin only    -    used to see whether suggestions or reports are worth looking into
     private Date date;
 
@@ -36,11 +80,11 @@ public class Viewer implements Serializable, Comparable<Viewer>{
     public List<Comment> getComment() {
         return comment;
     }
-
+/*
     public List<FavouriteRecipes> getFavouriteRecipes() {
         return favouriteRecipes;
     }
-
+*/
     public int getRep() {
         return rep;
     }
@@ -55,26 +99,26 @@ public class Viewer implements Serializable, Comparable<Viewer>{
         this.name = builder.name;
         this.password = builder.password;
         this.email = builder.email;
-        this.comment = builder.comment;
-        this.favouriteRecipes = builder.favouriteRecipes;
-        this.rep = builder.rep;
+       this.comment = builder.comment;
+    /*    this.favouriteRecipes = builder.favouriteRecipes;
+    */    this.rep = builder.rep;
         this.date = builder.date;
     }
 
-    @Override
+    /*@Override
     public int compareTo(Viewer viewer) {
         return email.compareTo(viewer.email);
     }
-
+*/
     public static class Builder{
 
         private String name;
         private String password;
         private String email;
         private List<Comment> comment;
-        private List<FavouriteRecipes> favouriteRecipes;
+     /*   private List<FavouriteRecipes> favouriteRecipes;
 
-        private int rep;
+      */  private int rep;
         private Date date;
 
         public Builder name(String name) {
@@ -92,16 +136,33 @@ public class Viewer implements Serializable, Comparable<Viewer>{
             return this;
         }
 
+//       public Builder comment(Comment/*List<Comment>*/ comment) {
+//            if(comment == null){
+//                return this;
+//            }
+//            if(comment != null)
+//            this.comment.add(comment);
+//
+//           //this.comment = comment;
+//            return this;
+//        }
+
         public Builder comment(List<Comment> comment) {
-            this.comment = comment;
+//            if(comment == null){
+//                return this;
+//            }
+//            if(comment != null)
+//                this.comment.add(comment);
+
+            //this.comment = comment;
             return this;
         }
 
-        public Builder favouriteRecipes(List<FavouriteRecipes> favouriteRecipes) {
+   /*     public Builder favouriteRecipes(List<FavouriteRecipes> favouriteRecipes) {
             this.favouriteRecipes = favouriteRecipes;
             return this;
         }
-
+*/
         public Builder rep(int rep) {
             this.rep = rep;
             return this;
@@ -120,7 +181,7 @@ public class Viewer implements Serializable, Comparable<Viewer>{
 
 
 
-    @Override
+    /*@Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Viewer)) return false;
@@ -141,5 +202,5 @@ public class Viewer implements Serializable, Comparable<Viewer>{
                 "email='" + email + '\'' +
                 ", name='" + name + '\'' +
                 '}';
-    }
+    }*/
 }

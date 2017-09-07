@@ -6,7 +6,7 @@ import com.VapeRepo.Services.BaseService;
 /**
  * Created by dylan on 8/14/2017.
  */
-public interface SuggestionService  extends BaseService<Suggestion, String> {
+public interface SuggestionService  extends BaseService<Suggestion, Integer> {
   /*  Suggestion create(Suggestion suggestion);
     Suggestion read(int sug_id);
     Suggestion update(Suggestion suggestion);

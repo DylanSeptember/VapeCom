@@ -9,16 +9,16 @@ import javax.persistence.ManyToOne;
  * Created by dylan on 8/5/2017.
  */
 @Entity
-public class IngredientSpecification {
+public class Ingredientspecification {
     private int percentage;
     @Id
     @GeneratedValue
-    private int spec_id;
+    private int id;
 
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Recipe recipe;
 
-    @ManyToOne
+    @ManyToOne(optional=false)
     private Ingredient ingredient;
 
     public int getPercentage() {
@@ -26,7 +26,7 @@ public class IngredientSpecification {
     }
 
     public int getSpec_id() {
-        return spec_id;
+        return id;
     }
 
     public Recipe getRecipe() {
@@ -37,11 +37,11 @@ public class IngredientSpecification {
         return ingredient;
     }
 
-    public IngredientSpecification(){}
+    public Ingredientspecification(){}
 
-    public IngredientSpecification(Builder builder){
+    public Ingredientspecification(Builder builder){
         this.percentage = builder.percentage;
-        this.spec_id = builder.spec_id;
+        this.id = builder.spec_id;
         this.recipe = builder.recipe;
         this.ingredient = builder.ingredient;
     }
@@ -73,23 +73,23 @@ public class IngredientSpecification {
             return this;
         }
 
-        public IngredientSpecification build(){
-            return  new IngredientSpecification(this);
+        public Ingredientspecification build(){
+            return  new Ingredientspecification(this);
         }
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof IngredientSpecification)) return false;
+        if (!(o instanceof Ingredientspecification)) return false;
 
-        IngredientSpecification that = (IngredientSpecification) o;
+        Ingredientspecification that = (Ingredientspecification) o;
 
-        return spec_id == that.spec_id;
+        return id == that.id;
     }
 
     @Override
     public int hashCode() {
-        return spec_id;
+        return id;
     }
 }

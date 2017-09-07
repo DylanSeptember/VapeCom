@@ -7,6 +7,9 @@ import com.VapeRepo.Services.Interfaces.ViewerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by dylan on 8/14/2017.
  */
@@ -29,6 +32,16 @@ public class ViewerServiceImpl implements ViewerService {
     @Override
     public Viewer update(String s) {
         return null;
+    }
+
+    public List<Viewer> getViewer() {
+        List<Viewer> allcources = new ArrayList<Viewer>();
+
+        Iterable<Viewer> courses = viewerRepository.findAll();
+        for (Viewer course : courses) {
+            allcources.add(course);
+        }
+        return allcources;
     }
     //private ViewerServiceImpl service;
 

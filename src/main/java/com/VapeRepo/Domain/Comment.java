@@ -1,16 +1,40 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by dylan on 8/5/2017.
  */
-public class Comment {
+
+/////////////////////////////////something wrong here///////////////////////////doesnt play with other entities
+@Entity
+public class Comment /*implements Serializable*/ {
+    @Id
+    @GeneratedValue
     private int comment_id;
+
     private Date commentDate;
     private String description;
+
+    @ManyToOne(optional=false)
     private Recipe recipe;
+
+    @ManyToOne(optional=false)
+  // @JoinColumn(name = "viewer")
     private Viewer viewer;
+
+
+
+
+
+
+
+
+
+
+
 
     public int getComment_id() {
         return comment_id;
@@ -65,7 +89,7 @@ public class Comment {
             return this;
         }
 
-         public Builder recipe(Recipe recipe) {
+        public Builder recipe(Recipe recipe) {
             this.recipe = recipe;
             return this;
         }
@@ -80,7 +104,9 @@ public class Comment {
         }
     }
 
-    @Override
+
+
+   /* @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof Comment)) return false;
@@ -93,5 +119,5 @@ public class Comment {
     @Override
     public int hashCode() {
         return comment_id;
-    }
+    }*/
 }

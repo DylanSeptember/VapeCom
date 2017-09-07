@@ -1,7 +1,9 @@
 package com.VapeRepo.Domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import java.util.Date;
 
 /**
@@ -10,9 +12,13 @@ import java.util.Date;
 @Entity
 public class Suggestion {
     private String description;         //      mixer will have the ability to make suggestions to add ingredients to database of ingredients or any changes to the system
+
+    @ManyToOne
     private Mixer mixer;
+
     private Date date;
     @Id
+    @GeneratedValue
     private int sug_id;
 
 
@@ -39,7 +45,7 @@ public class Suggestion {
 
         this.mixer = builder.mixer;
         this.date = builder.date;
-        this.sug_id = builder.sug_id;
+     //   this.sug_id = builder.sug_id;
     }
 
     public static class Builder{
@@ -47,7 +53,7 @@ public class Suggestion {
         private String description;
         private Mixer mixer;
         private Date date;
-        private int sug_id;
+     //   private int sug_id;
 
         public Builder description(String message) {
             this.description = message;
@@ -65,10 +71,10 @@ public class Suggestion {
             return this;
         }
 
-        public Builder sug_id(int sug_id) {
-            this.sug_id = sug_id;
-            return this;
-        }
+//        public Builder sug_id(int sug_id) {
+//            this.sug_id = sug_id;
+//            return this;
+//        }
 
         public Suggestion build(){
             return  new Suggestion(this);

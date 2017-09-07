@@ -1,7 +1,6 @@
 package com.VapeRepo.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -10,15 +9,27 @@ import java.util.List;
  * Created by dylan on 8/5/2017.
  */
 @Entity
-public class Mixer /*extends Viewer */implements Serializable {
-
-    private List<Recipe> recipes;
+//@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+//@DiscriminatorColumn(name = "Viewer_TYPE", discriminatorType = DiscriminatorType.STRING)
+//@Table(name="Mixer")
+//@DiscriminatorValue("Mixer")
+public class Mixer /*extends Viewer*/ implements Serializable {
+//    @OneToMany
+//    private List<Recipe> recipes;
+    //private String recipe = "hidvjkhvd";
     @Id
+    private String email;
+
+    @OneToOne
+    @PrimaryKeyJoinColumn(name="email", referencedColumnName="email")
     private Viewer viewer;
 
-    public List<Recipe> getRecipes() {
-        return recipes;
-    }
+
+
+//    public List<Recipe> getRecipes() {
+//        return recipes;
+//    }
+
 
     public Viewer getViewer() {
         return viewer;
@@ -28,24 +39,36 @@ public class Mixer /*extends Viewer */implements Serializable {
 
     public Mixer(Builder builder){
 
-         this.recipes = builder.recipes;
-         this.viewer = builder.viewer;
+//        this.recipes = builder.recipes;
+        this.email = builder.email;
+        this.viewer = builder.viewer;
     }
 
     public static class Builder{
         private Viewer viewer;
-        private List<Recipe> recipes;
+        private String email;
+//        private List<Recipe> recipes;
 
-        public Builder recipes(List<Recipe> recipes) {
-            this.recipes = recipes;
-            return this;
-        }
+//        public Builder recipes(Recipe recipes) {
+//            this.recipes.add(recipes);
+//            return this;
+//        }
+
+//        public Builder recipes(List<Recipe> recipes) {
+//            this.recipes = recipes;
+//            return this;
+//        }
 
         public Builder viewer(Viewer viewer) {
-            this.recipes = recipes;
+            this.viewer = viewer;
+            this.email = viewer.getEmail();
             return this;
         }
 
+       /* public Builder email(String email) {
+            this.email = email;
+            return this;
+        }*/
 
         public Mixer build(){
             return  new Mixer(this);
@@ -60,13 +83,13 @@ public class Mixer /*extends Viewer */implements Serializable {
 
         Mixer mixer = (Mixer) o;
 
-        return viewer.equals(mixer.viewer);
+        return email.equals(mixer.email);
     }
 
     @Override
     public int hashCode() {
         int result = super.hashCode();
-        result = 31 * result + viewer.hashCode();
+        result = 31 * result + email.hashCode();
         return result;
     }
 }

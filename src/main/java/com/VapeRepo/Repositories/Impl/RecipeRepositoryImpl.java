@@ -10,7 +10,7 @@ import java.util.Map;
  * Created by dylan on 8/14/2017.
  */
 public class RecipeRepositoryImpl /*implements RecipeRepository*/{
-    Map<Integer, Recipe> recipeTable;
+   /* Map<Integer, Recipe> recipeTable;
 
     public RecipeRepositoryImpl() {
         recipeTable = new HashMap<Integer, Recipe>();
@@ -37,5 +37,5 @@ public class RecipeRepositoryImpl /*implements RecipeRepository*/{
 
     public void delete(int recipe_id) {
         recipeTable.remove(recipe_id);
-    }
+    }*/
 }
