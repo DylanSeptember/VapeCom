@@ -1,14 +1,25 @@
 package com.VapeRepo.Domain;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  * Created by dylan on 8/5/2017.
  */
-public class Ingredient_Specification {
+@Entity
+public class IngredientSpecification {
     private int percentage;
+    @Id
+    @GeneratedValue
     private int spec_id;
+
+    @ManyToOne
     private Recipe recipe;
 
-    private Ingredient ing_id;
+    @ManyToOne
+    private Ingredient ingredient;
 
     public int getPercentage() {
         return percentage;
@@ -22,17 +33,17 @@ public class Ingredient_Specification {
         return recipe;
     }
 
-    public Ingredient getIng_id() {
-        return ing_id;
+    public Ingredient getIngredient() {
+        return ingredient;
     }
 
-    public Ingredient_Specification(){}
+    public IngredientSpecification(){}
 
-    public Ingredient_Specification(Builder builder){
+    public IngredientSpecification(Builder builder){
         this.percentage = builder.percentage;
         this.spec_id = builder.spec_id;
         this.recipe = builder.recipe;
-        this.ing_id = builder.ing_id;
+        this.ingredient = builder.ingredient;
     }
 
     public static class Builder{
@@ -40,7 +51,7 @@ public class Ingredient_Specification {
         private int percentage;
         private int spec_id;
         private Recipe recipe;
-        private Ingredient ing_id;
+        private Ingredient ingredient;
 
         public Builder percentage(int percentage) {
             this.percentage = percentage;
@@ -57,22 +68,22 @@ public class Ingredient_Specification {
             return this;
         }
 
-        public Builder ing_id(Ingredient ing_id) {                      //  assign recipe to which ingredient belngs to
-            this.ing_id = ing_id;
+        public Builder ingredient(Ingredient ingredient) {                      //  assign recipe to which ingredient belngs to
+            this.ingredient = ingredient;
             return this;
         }
 
-        public Ingredient_Specification build(){
-            return  new Ingredient_Specification(this);
+        public IngredientSpecification build(){
+            return  new IngredientSpecification(this);
         }
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Ingredient_Specification)) return false;
+        if (!(o instanceof IngredientSpecification)) return false;
 
-        Ingredient_Specification that = (Ingredient_Specification) o;
+        IngredientSpecification that = (IngredientSpecification) o;
 
         return spec_id == that.spec_id;
     }
